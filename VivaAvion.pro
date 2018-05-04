@@ -7,6 +7,8 @@
 QT       += core gui
 QT += sql
 
+CONFIG += console
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = VivaAvion
@@ -64,4 +66,6 @@ FORMS += \
 DISTFILES += \
     ../Cuarto Semestre/Bases de datos/Consultar.sql \
     ../Cuarto Semestre/Bases de datos/Crear.sql \
-    ../Cuarto Semestre/Bases de datos/Insertar.sql
+    ../Cuarto Semestre/Bases de datos/Insertar.sql \
+    Crear.sql \
+    Insertar.sql
