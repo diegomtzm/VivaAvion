@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
     QTreeView tv;
     tv.setModel(&tbl);
-  //  tv.show();
+    tv.show();
 
     return a.exec();
 }
