@@ -1,58 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>verInfoCliente</class>
- <widget class="QDialog" name="verInfoCliente">
+ <class>dependientes</class>
+ <widget class="QDialog" name="dependientes">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>412</width>
-    <height>122</height>
+    <width>400</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Dependientes</string>
   </property>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>391</width>
-     <height>71</height>
+     <width>371</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="editTriggers">
     <set>QAbstractItemView::NoEditTriggers</set>
    </property>
+   <property name="selectionBehavior">
+    <enum>QAbstractItemView::SelectRows</enum>
+   </property>
   </widget>
   <widget class="QPushButton" name="regresar">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>90</y>
+     <x>300</x>
+     <y>230</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Regresar</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="dependientes">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>90</y>
-     <width>81</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Dependientes</string>
    </property>
   </widget>
  </widget>

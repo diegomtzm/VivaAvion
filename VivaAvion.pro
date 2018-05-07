@@ -40,7 +40,9 @@ SOURCES += \
     reservashoteles.cpp \
     infocliente.cpp \
     verinfocliente.cpp \
-    verinfoavion.cpp
+    verinfoavion.cpp \
+    dependientes.cpp \
+    agregardependiente.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +57,9 @@ HEADERS += \
     reservashoteles.h \
     infocliente.h \
     verinfocliente.h \
-    verinfoavion.h
+    verinfoavion.h \
+    dependientes.h \
+    agregardependiente.h
 
 FORMS += \
         mainwindow.ui \
@@ -70,7 +74,9 @@ FORMS += \
     reservashoteles.ui \
     infocliente.ui \
     verinfocliente.ui \
-    verinfoavion.ui
+    verinfoavion.ui \
+    dependientes.ui \
+    agregardependiente.ui
 
 DISTFILES += \
     ../Cuarto Semestre/Bases de datos/Consultar.sql \

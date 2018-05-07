@@ -4,6 +4,7 @@
 #include "verhoteles.h"
 #include "verhotelesadmin.h"
 #include "vervuelosadmin.h"
+#include "agregardependiente.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -48,6 +49,14 @@ void MainWindow::on_VerHotelesAdmin_clicked()
 {
     verHotelesAdmin hotelesAdmin;
     if(hotelesAdmin.exec() == QDialog::Accepted) {
+
+    }
+}
+
+void MainWindow::on_VerVuelos_2_clicked()
+{
+    agregarDependiente dependiente;
+    if(dependiente.exec() == QDialog::Accepted) {
 
     }
 }

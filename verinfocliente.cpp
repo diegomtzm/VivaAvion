@@ -2,11 +2,14 @@
 #include "ui_verinfocliente.h"
 #include "reservashoteles.h"
 #include "reservasvuelos.h"
+#include "dependientes.h"
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+
+QString infoCliente;
 
 verInfoCliente::verInfoCliente(QWidget *parent) :
     QDialog(parent),
@@ -49,7 +52,25 @@ verInfoCliente::~verInfoCliente()
     delete ui;
 }
 
+QString verInfoCliente::getIdCliente() {
+    return infoCliente;
+}
+
 void verInfoCliente::on_regresar_clicked()
 {
     QDialog::accept();
+}
+
+void verInfoCliente::on_tableWidget_clicked(const QModelIndex &index)
+{
+    ui->dependientes->setEnabled(true);
+}
+
+void verInfoCliente::on_dependientes_clicked()
+{
+    infoCliente = ui->tableWidget->selectedItems().at(0)->data(0).toString();
+    dependientes depend;
+    if(depend.exec() == QDialog::Accepted) {
+
+    }
 }

@@ -28,6 +28,8 @@ private slots:
 
     void on_VerHotelesAdmin_clicked();
 
+    void on_VerVuelos_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
