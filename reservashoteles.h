@@ -15,6 +15,8 @@ public:
     explicit reservasHoteles(QWidget *parent = 0);
     ~reservasHoteles();
     QString getIdCliente();
+    void setActive(bool);
+    bool getActive();
 
 private slots:
     void on_salir_clicked();

@@ -1,6 +1,7 @@
 #include "verinfocliente.h"
 #include "ui_verinfocliente.h"
 #include "reservashoteles.h"
+#include "reservasvuelos.h"
 #include <QSqlDatabase>
 #include <QSqlDriver>
 #include <QSqlQuery>
@@ -19,8 +20,13 @@ verInfoCliente::verInfoCliente(QWidget *parent) :
     titulos2 << "Id" << "Nombre" << "Apellido Pat." << "Apellido Mat." << "Email" << "Telefono" << "Asist. Personal" << "Edad";
     ui->tableWidget->setHorizontalHeaderLabels(titulos2);
 
-    reservasHoteles reservas;
-    QString cliente = reservas.getIdCliente();
+    reservasHoteles reservasH;
+    reservasVuelos reservasV;
+    QString cliente;
+    if(reservasH.getActive())
+        cliente = reservasH.getIdCliente();
+    else if(reservasV.getActive())
+        cliente = reservasV.getIdCliente();
 
     QSqlQuery query2;
     query2.prepare("SELECT * FROM Cliente WHERE id_cliente == ?");

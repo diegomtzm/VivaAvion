@@ -1,6 +1,7 @@
 #include "vervuelosadmin.h"
 #include "agregarvuelo.h"
 #include "reservasvuelos.h"
+#include "verinfoavion.h"
 #include "ui_vervuelosadmin.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
@@ -9,21 +10,24 @@
 #include <QSqlError>
 #include <QDebug>
 
+QString idAvion;
+
 verVuelosAdmin::verVuelosAdmin(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::verVuelosAdmin)
 {
     ui->setupUi(this);
     ui->tableWidget_vuelosAdmin->clear();
-    ui->tableWidget_vuelosAdmin->setColumnCount(11);
+    ui->tableWidget_vuelosAdmin->setColumnCount(12);
     ui->tableWidget_vuelosAdmin->setSelectionBehavior(QAbstractItemView::SelectRows);
     QStringList titulos;
-    titulos << "No. Vuelo" << "Fecha" << "Hora Partida" << "Hora Abordaje" << "Origen" << "Destino" <<
+    titulos << "Id Avion" << "No. Vuelo" << "Fecha" << "Hora Abordaje" << "Hora Partida" << "Origen" << "Destino" <<
                "Duracion" << "Cant. Pasajeros" << "Piloto" << "Puerta Abordaje" << "Precio";
     ui->tableWidget_vuelosAdmin->setHorizontalHeaderLabels(titulos);
 
     QSqlQuery query;
-    query.prepare("SELECT * FROM vuelo");
+    query.prepare("SELECT a.id_avion, v.* FROM vuelo AS v, AvionUsado AS a "
+                  "WHERE a.id_vuelo == v.id_vuelo");
 
     if(!query.exec()) {
         qWarning() << "ERROR: " << query.lastError().text();
@@ -31,7 +35,7 @@ verVuelosAdmin::verVuelosAdmin(QWidget *parent) :
 
     while(query.next()) {
         ui->tableWidget_vuelosAdmin->insertRow(ui->tableWidget_vuelosAdmin->rowCount());
-        for(int i = 0; i < 11; i++) {
+        for(int i = 0; i < 12; i++) {
             ui->tableWidget_vuelosAdmin->setItem(ui->tableWidget_vuelosAdmin->rowCount()-1, i, new QTableWidgetItem(query.value(i).toString()));
         }
     }
@@ -40,6 +44,10 @@ verVuelosAdmin::verVuelosAdmin(QWidget *parent) :
 verVuelosAdmin::~verVuelosAdmin()
 {
     delete ui;
+}
+
+QString verVuelosAdmin::getIdAvion() {
+    return idAvion;
 }
 
 void verVuelosAdmin::on_salir_V_A_clicked()
@@ -72,7 +80,7 @@ void verVuelosAdmin::on_tableWidget_vuelosAdmin_clicked(const QModelIndex &index
 void verVuelosAdmin::on_borrarVuelo_clicked()
 {
     QSqlQuery query;
-    QString id = ui->tableWidget_vuelosAdmin->selectedItems().at(0)->data(0).toString();
+    QString id = ui->tableWidget_vuelosAdmin->selectedItems().at(1)->data(0).toString();
     query.prepare("DELETE FROM Vuelo WHERE id_vuelo == ?");
     query.addBindValue(id);
     query.exec();
@@ -81,13 +89,14 @@ void verVuelosAdmin::on_borrarVuelo_clicked()
     ui->tableWidget_vuelosAdmin->setRowCount(0);
     ui->tableWidget_vuelosAdmin->setSelectionBehavior(QAbstractItemView::SelectRows);
     QStringList titulos;
-    titulos << "No. Vuelo" << "Fecha" << "Hora Partida" << "Hora Abordaje" << "Origen" << "Destino" <<
+    titulos << "Id Avion" << "No. Vuelo" << "Fecha" << "Hora Abordaje" << "Hora Partida" << "Origen" << "Destino" <<
                "Duracion" << "Cant. Pasajeros" << "Piloto" << "Puerta Abordaje" << "Precio";
     ui->tableWidget_vuelosAdmin->setHorizontalHeaderLabels(titulos);
 
 
     QSqlQuery query2;
-    query2.prepare("SELECT * FROM Vuelo");
+    query2.prepare("SELECT a.id_avion, v.* FROM vuelo AS v, AvionUsado AS a "
+                  "WHERE a.id_vuelo == v.id_vuelo");
 
     if(!query2.exec()) {
         qWarning() << "ERROR: " << query2.lastError().text();
@@ -95,8 +104,42 @@ void verVuelosAdmin::on_borrarVuelo_clicked()
 
     while(query2.next()) {
         ui->tableWidget_vuelosAdmin->insertRow(ui->tableWidget_vuelosAdmin->rowCount());
-        for(int i = 0; i < 11; i++) {
+        for(int i = 0; i < 12; i++) {
             ui->tableWidget_vuelosAdmin->setItem(ui->tableWidget_vuelosAdmin->rowCount()-1, i, new QTableWidgetItem(query2.value(i).toString()));
+        }
+    }
+}
+
+void verVuelosAdmin::on_infoAvion_clicked()
+{
+    idAvion = ui->tableWidget_vuelosAdmin->selectedItems().at(0)->data(0).toString();
+    verInfoAvion avion;
+    if(avion.exec() == QDialog::Accepted) {
+
+    }
+}
+
+void verVuelosAdmin::on_refresh_clicked()
+{
+    ui->tableWidget_vuelosAdmin->clear();
+    ui->tableWidget_vuelosAdmin->setRowCount(0);
+    QStringList titulos;
+    titulos << "Id Avion" << "No. Vuelo" << "Fecha" << "Hora Abordaje" << "Hora Partida" << "Origen" << "Destino" <<
+               "Duracion" << "Cant. Pasajeros" << "Piloto" << "Puerta Abordaje" << "Precio";
+    ui->tableWidget_vuelosAdmin->setHorizontalHeaderLabels(titulos);
+
+    QSqlQuery query;
+    query.prepare("SELECT a.id_avion, v.* FROM vuelo AS v, AvionUsado AS a "
+                  "WHERE a.id_vuelo == v.id_vuelo");
+
+    if(!query.exec()) {
+        qWarning() << "ERROR: " << query.lastError().text();
+    }
+
+    while(query.next()) {
+        ui->tableWidget_vuelosAdmin->insertRow(ui->tableWidget_vuelosAdmin->rowCount());
+        for(int i = 0; i < 12; i++) {
+            ui->tableWidget_vuelosAdmin->setItem(ui->tableWidget_vuelosAdmin->rowCount()-1, i, new QTableWidgetItem(query.value(i).toString()));
         }
     }
 }

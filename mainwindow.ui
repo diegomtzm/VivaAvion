@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
+    <width>358</width>
     <height>382</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>VivaAvion</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="VerVuelos">
@@ -98,7 +98,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>574</width>
+     <width>358</width>
      <height>21</height>
     </rect>
    </property>

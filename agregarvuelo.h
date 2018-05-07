@@ -18,6 +18,10 @@ public:
 private slots:
     void on_cancelar_clicked();
 
+    void on_lineEdit_destino_editingFinished();
+
+    void on_agregar_clicked();
+
 private:
     Ui::agregarVuelo *ui;
 };

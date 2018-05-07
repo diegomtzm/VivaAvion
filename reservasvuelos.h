@@ -14,9 +14,16 @@ class reservasVuelos : public QDialog
 public:
     explicit reservasVuelos(QWidget *parent = 0);
     ~reservasVuelos();
+    QString getIdCliente();
+    void setActive(bool);
+    bool getActive();
 
 private slots:
     void on_salir_clicked();
+
+    void on_tableWidget_clicked(const QModelIndex &index);
+
+    void on_infoCliente_clicked(bool checked);
 
 private:
     Ui::reservasVuelos *ui;

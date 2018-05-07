@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>504</width>
-    <height>329</height>
+    <height>347</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Agregar Vuelo</string>
   </property>
   <property name="modal">
    <bool>false</bool>
@@ -337,11 +337,11 @@
     <string>ID Avion</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>260</y>
+     <y>280</y>
      <width>354</width>
      <height>22</height>
     </rect>
@@ -369,11 +369,11 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>300</y>
+     <y>310</y>
      <width>158</width>
      <height>25</height>
     </rect>
@@ -381,8 +381,14 @@
    <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QPushButton" name="agregar">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
       <property name="text">
        <string>Agregar</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -391,9 +397,35 @@
       <property name="text">
        <string>Cancelar</string>
       </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>250</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Precio  $</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_precio">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>250</y>
+     <width>41</width>
+     <height>20</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

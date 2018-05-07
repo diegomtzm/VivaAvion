@@ -90,7 +90,7 @@ CREATE TABLE AvionUsado(
    	id_avion VARCHAR(10),
    	PRIMARY KEY (id_vuelo, id_avion),
    	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo) ON DELETE CASCADE,
-   	FOREIGN KEY (id_avion) REFERENCES Avion (id_avion) ON DELETE CASCADE
+   	FOREIGN KEY (id_avion) REFERENCES Avion (id_avion) ON DELETE SET NULL
 );
  
 -- ReservacionHotel table - ReservacionHotel (id_cliente, id_hotel)

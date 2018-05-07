@@ -14,6 +14,7 @@ class verVuelosAdmin : public QDialog
 public:
     explicit verVuelosAdmin(QWidget *parent = 0);
     ~verVuelosAdmin();
+    QString getIdAvion();
 
 private slots:
     void on_salir_V_A_clicked();
@@ -25,6 +26,10 @@ private slots:
     void on_tableWidget_vuelosAdmin_clicked(const QModelIndex &index);
 
     void on_borrarVuelo_clicked();
+
+    void on_infoAvion_clicked();
+
+    void on_refresh_clicked();
 
 private:
     Ui::verVuelosAdmin *ui;

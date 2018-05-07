@@ -1,5 +1,6 @@
 #include "reservashoteles.h"
 #include "ui_reservashoteles.h"
+#include "reservasvuelos.h"
 #include "verinfocliente.h"
 #include <QMessageBox>
 #include <QSqlDatabase>
@@ -9,6 +10,7 @@
 #include <QDebug>
 
 QString cliente;
+bool active;
 
 reservasHoteles::reservasHoteles(QWidget *parent) :
     QDialog(parent),
@@ -39,6 +41,14 @@ reservasHoteles::reservasHoteles(QWidget *parent) :
     }
 }
 
+void reservasHoteles::setActive(bool b) {
+    active = b;
+}
+
+bool reservasHoteles::getActive() {
+    return active;
+}
+
 QString reservasHoteles::getIdCliente() {
     return cliente;
 }
@@ -60,6 +70,9 @@ void reservasHoteles::on_tableWidget_clicked(const QModelIndex &index)
 
 void reservasHoteles::on_infoCliente_clicked()
 {
+    reservasVuelos rv;
+    rv.setActive(false);
+    this->setActive(true);
     cliente = ui->tableWidget->selectedItems().at(5)->data(0).toString();
     verInfoCliente infoCliente;
     if(infoCliente.exec() == QDialog::Accepted){
