@@ -18,6 +18,10 @@ public:
 private slots:
     void on_cancelar_clicked();
 
+    void on_lineEdit_precio_editingFinished();
+
+    void on_agregar_clicked();
+
 private:
     Ui::agregarHotel *ui;
 };

@@ -1,18 +1,18 @@
 -- Cliente (id_cliente, Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad)
-INSERT INTO Cliente (Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad) VALUES ('Harry', 'Potter', 'Evans', 'goldensnicht@magic.com', '413-497-0167', 'No', '29');
-INSERT INTO Cliente (Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad) VALUES ('Anakin', 'Skywalker', 'Vader', 'darthvader@galaxy.com', '327-255-1977', 'No', '45');
-INSERT INTO Cliente (Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad) VALUES ('Sheldon', 'Lee', 'Cooper', 'spock.moonpie@darkmatter.com', '410-100-1001', 'Si', '38');
-INSERT INTO Cliente (Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad) VALUES ('Serena', 'Van Der', 'Woodsen', 'xoxo@fashion.com', '212-453-4233','Si', '21' );
-INSERT INTO Cliente (Nombre, Apellido_Paterno, Apellido_Materno, Email, Telefono, Asistencia_Personal, Edad) VALUES ('Damon', 'Salvatore', 'Somerhalder', 'mysticfalls@blood.com', '171-186-1841', 'No', '25');
+INSERT INTO Cliente  VALUES ('BBT73','Harry', 'Potter', 'Evans', 'goldensnicht@magic.com', '413-497-0167', 'No', '29');
+INSERT INTO Cliente  VALUES ('VD173','Anakin', 'Skywalker', 'Vader', 'darthvader@galaxy.com', '327-255-1977', 'No', '45');
+INSERT INTO Cliente  VALUES ('SW1138','Sheldon', 'Lee', 'Cooper', 'spock.moonpie@darkmatter.com', '410-100-1001', 'Si', '38');
+INSERT INTO Cliente  VALUES ('GG10021','Serena', 'Van Der', 'Woodsen', 'xoxo@fashion.com', '212-453-4233','Si', '21' );
+INSERT INTO Cliente  VALUES ('HP8764','Damon', 'Salvatore', 'Somerhalder', 'mysticfalls@blood.com', '171-186-1841', 'No', '25');
 
 -- Insert Dependientes (id_clienteD, nombreD, apellidoD_paterno, apellidoD_materno, edad, asistencia_personal, parentesco)
 
-INSERT INTO Dependientes VALUES (3, 'Mary', 'Cooper', 'Metcalf', '55', 'Si', 'Madre'); --Sheldon
-INSERT INTO Dependientes VALUES (1, 'Ronald', 'Bilius', 'Weasly', '30', 'Si', 'Amigo'); --Harry
-INSERT INTO Dependientes VALUES (5, 'Stefan', 'Salvatore', 'Wesley', '17', 'No', 'Hermano'); -- Damon
-INSERT INTO Dependientes VALUES (2, 'Luke ', 'Skywalker', 'Amidala', '19', 'Si', 'Hijo'); -- Darth vader
-INSERT INTO Dependientes VALUES (4, 'Lily', 'Van Der', 'Woodsen', '52', 'Si', 'Madre'); --Serena
-INSERT INTO Dependientes VALUES (4, 'Eric', 'Van Der', 'Woodsen', '17', 'Si', 'Hermano'); --Serena
+INSERT INTO Dependientes VALUES ('SW1138', 'Mary', 'Cooper', 'Metcalf', '55', 'Si', 'Madre'); --Sheldon
+INSERT INTO Dependientes VALUES ('BBT73', 'Ronald', 'Bilius', 'Weasly', '30', 'Si', 'Amigo'); --Harry
+INSERT INTO Dependientes VALUES ('HP8764', 'Stefan', 'Salvatore', 'Wesley', '17', 'No', 'Hermano'); -- Damon
+INSERT INTO Dependientes VALUES ('VD173', 'Luke ', 'Skywalker', 'Amidala', '19', 'Si', 'Hijo'); -- Darth vader
+INSERT INTO Dependientes VALUES ('GG10021', 'Lily', 'Van Der', 'Woodsen', '52', 'Si', 'Madre'); --Serena
+INSERT INTO Dependientes VALUES ('GG10021', 'Eric', 'Van Der', 'Woodsen', '17', 'Si', 'Hermano'); --Serena
 
 --Avion (id_avion, Modelo, cant_Asientos) - https://www.ana.co.jp/es/mx/domestic/departure/inflight/seatmap/detail.html?c=code
 INSERT INTO Avion VALUES('773', 'ABoeing 777-300', 514);
@@ -44,7 +44,7 @@ INSERT INTO ReservacionVuelo VALUES('V0081','BBT73');
 
 --VueloDep (id_cliente, nombreD, id_vuelo)
 INSERT INTO VueloDep VALUES('BBT73','Mary', 'V0081');
-INSERT INTO VueloDep VALUES('VD172','Damon', 'V0079');
+INSERT INTO VueloDep VALUES('VD173','Damon', 'V0079');
 INSERT INTO VueloDep VALUES('SW1138','Luke', 'V0082');
 INSERT INTO VueloDep VALUES('GG10021','Lily', 'V0083');
 INSERT INTO VueloDep VALUES('GG10021','Eric', 'V0083');

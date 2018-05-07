@@ -56,13 +56,13 @@ int main(int argc, char *argv[])
     int num2 = ExecuteSqlScriptFile(db, "C:/Users/Diego/Documents/VivaAvion/Insertar.sql");
 
 
-    QSqlTableModel  tbl(0, db);
+   /* QSqlTableModel  tbl(0, db);
     tbl.setTable("Hotel");
     tbl.select();
 
     QTreeView tv;
     tv.setModel(&tbl);
-    //tv.show();
+    //tv.show();*/
 
     return a.exec();
 }

@@ -14,9 +14,14 @@ class reservasHoteles : public QDialog
 public:
     explicit reservasHoteles(QWidget *parent = 0);
     ~reservasHoteles();
+    QString getIdCliente();
 
 private slots:
     void on_salir_clicked();
+
+    void on_tableWidget_clicked(const QModelIndex &index);
+
+    void on_infoCliente_clicked();
 
 private:
     Ui::reservasHoteles *ui;

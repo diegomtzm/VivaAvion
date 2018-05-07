@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS Cliente;
 
 DROP TABLE IF EXISTS Cliente;
 CREATE TABLE Cliente(
-   	id_cliente INTEGER,
+   	id_cliente VARCHAR(10),
    	Nombre VARCHAR(20),
    	Apellido_Paterno VARCHAR(20),
    	Apellido_Materno VARCHAR(20),
@@ -25,7 +25,7 @@ CREATE TABLE Cliente(
 -- Dependientes table - Dependientes (id_cliente, nombreD, apellidoD_paterno, apellidoD_materno, edad, asistencia_personal, parentesco)
 DROP TABLE IF EXISTS Dependientes;
 CREATE TABLE Dependientes(
-   	id_cliente INTEGER,
+   	id_cliente VARCHAR(10),
    	NombreD VARCHAR(20),
    	ApellidoD_Paterno VARCHAR(20),
    	ApellidoD_Materno VARCHAR(20),
