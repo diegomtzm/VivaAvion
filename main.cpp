@@ -5,11 +5,8 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
-#include <QSqlTableModel>
 #include <QStringList>
-#include <QTreeView>
 #include <QFile>
-#include <iostream>
 
 using namespace std;
 
@@ -51,18 +48,9 @@ int main(int argc, char *argv[])
        qWarning() << "ERROR: " << db.lastError();
 
 
-
     int num = ExecuteSqlScriptFile(db, "C:/Users/Diego/Documents/VivaAvion/Crear.sql");
     int num2 = ExecuteSqlScriptFile(db, "C:/Users/Diego/Documents/VivaAvion/Insertar.sql");
 
-
-   /* QSqlTableModel  tbl(0, db);
-    tbl.setTable("Hotel");
-    tbl.select();
-
-    QTreeView tv;
-    tv.setModel(&tbl);
-    //tv.show();*/
 
     return a.exec();
 }
