@@ -22,6 +22,10 @@ private slots:
 
     void on_verReserva_V_A_clicked();
 
+    void on_tableWidget_vuelosAdmin_clicked(const QModelIndex &index);
+
+    void on_borrarVuelo_clicked();
+
 private:
     Ui::verVuelosAdmin *ui;
 };

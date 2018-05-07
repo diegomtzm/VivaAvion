@@ -22,6 +22,12 @@ private slots:
 
     void on_verReservasHotel_clicked();
 
+    void on_lineEdit_returnPressed();
+
+    void on_tableWidget_clicked(const QModelIndex &index);
+
+    void on_eliminarHotel_clicked();
+
 private:
     Ui::verHotelesAdmin *ui;
 };
