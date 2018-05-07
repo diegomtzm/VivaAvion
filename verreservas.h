@@ -20,6 +20,14 @@ private slots:
 
     void on_reservarHotel_clicked();
 
+    void on_lineEdit_ID_returnPressed();
+
+    void on_tableWidget_Vuelos_clicked(const QModelIndex &index);
+
+    void on_tableWidget_Hotel_clicked(const QModelIndex &index);
+
+    void on_quitarReserva_clicked();
+
 private:
     Ui::verReservas *ui;
 };

@@ -9,23 +9,28 @@
 #include <QSqlError>
 #include <QDebug>
 
-QString idCliente, noVuelo;
+QString idCliente, noVuelo, ciudad;
 
 infoCliente::infoCliente(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::infoCliente)
 {
     ui->setupUi(this);
-    ui->tableWidget->setColumnCount(2);
     VerVuelos vuelos;
     noVuelo = vuelos.getIdVuelo();
     ui->label_idVuelo->setText(noVuelo);
+    ciudad = vuelos.getDestino();
 }
 
 infoCliente::~infoCliente()
 {
     delete ui;
 }
+
+QString infoCliente::getIdCliente() {
+    return idCliente;
+}
+
 
 void infoCliente::on_pushButton_aceptar_clicked()
 {
@@ -37,20 +42,8 @@ void infoCliente::on_pushButton_aceptar_clicked()
     query.addBindValue(idCliente);
     query.exec();
 
-    QSqlQuery query2;
-    query2.prepare("SELECT * FROM ReservacionVuelo");
-    query2.exec();
-
-    while(query2.next()) {
-        ui->tableWidget->insertRow(ui->tableWidget->rowCount());
-        for(int i = 0; i < 2; i++) {
-            ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, i, new QTableWidgetItem(query2.value(i).toString()));
-        }
-    }
-
-
-
-    /* QMessageBox::StandardButton preguntaHotel = QMessageBox::question(this, "Reserva de hotel", "¿Te interesa reservar un hotel?",
+    QMessageBox::StandardButton preguntaHotel = QMessageBox::question(this, "Reserva de hotel", "¿Te interesa reservar un hotel en "
+                                                                      + ciudad + "?",
                                                                QMessageBox::Yes | QMessageBox::No);
      if (preguntaHotel == QMessageBox::Yes) {
          verHoteles hoteles;
@@ -58,7 +51,8 @@ void infoCliente::on_pushButton_aceptar_clicked()
 
          }
      }
-     */
+
+    QDialog::accept();
 }
 
 void infoCliente::on_lineEdit_textEdited(const QString &arg1)

@@ -20,6 +20,8 @@ private slots:
 
     void on_reservarHotel_clicked();
 
+    void on_tableWidget_clicked(const QModelIndex &index);
+
 private:
     Ui::verHoteles *ui;
 };

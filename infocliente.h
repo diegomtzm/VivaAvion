@@ -14,6 +14,7 @@ class infoCliente : public QDialog
 public:
     explicit infoCliente(QWidget *parent = 0);
     ~infoCliente();
+    QString getIdCliente();
 
 private slots:
     void on_pushButton_aceptar_clicked();

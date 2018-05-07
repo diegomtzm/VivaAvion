@@ -8,7 +8,7 @@
 #include <QSqlError>
 #include <QDebug>
 
-QString idVuelo;
+QString idVuelo, destino;
 
 VerVuelos::VerVuelos(QWidget *parent) :
     QDialog(parent),
@@ -36,9 +36,14 @@ VerVuelos::VerVuelos(QWidget *parent) :
             ui->tableWidget->setItem(ui->tableWidget->rowCount()-1, i, new QTableWidgetItem(query.value(i).toString()));
         }
     }
+}
 
+void VerVuelos::setDestino(QString d) {
+    destino = d;
+}
 
-
+QString VerVuelos::getDestino() {
+    return destino;
 }
 
 QString VerVuelos::getIdVuelo() {
@@ -58,6 +63,7 @@ void VerVuelos::on_salir_V_clicked()
 void VerVuelos::on_reservarVuelo_clicked()
 {
     idVuelo = ui->tableWidget->selectedItems().at(0)->data(0).toString();
+    destino = ui->tableWidget->selectedItems().at(5)->data(0).toString();
 
     infoCliente cliente;
     if(cliente.exec() == QDialog::Accepted) {
@@ -121,4 +127,7 @@ void VerVuelos::on_lineEdit_returnPressed()
     }
 }
 
-
+void VerVuelos::on_tableWidget_clicked(const QModelIndex &index)
+{
+    ui->reservarVuelo->setEnabled(true);
+}

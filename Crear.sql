@@ -33,7 +33,7 @@ CREATE TABLE Dependientes(
    	Asistencia_Personal BOOLEAN,
    	Parentesco VARCHAR(20),
    	PRIMARY KEY (id_cliente, NombreD, ApellidoD_Paterno),
-   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente)
+   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente) ON DELETE CASCADE
 );
  
  -- Avion table - Avion (id_avion, Modelo, cant_Asientos)
@@ -79,8 +79,8 @@ CREATE TABLE ReservacionVuelo(
    	id_vuelo VARCHAR(10),
    	id_cliente VARCHAR(20),
    	PRIMARY KEY (id_vuelo, id_cliente),
-   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo),
-   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente)
+   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo) ON DELETE CASCADE, 
+   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente) ON DELETE CASCADE
 );
  
 -- AvionUsado table - AvionUsado(id_vuelo, id_avion)
@@ -89,8 +89,8 @@ CREATE TABLE AvionUsado(
    	id_vuelo VARCHAR(10),
    	id_avion VARCHAR(10),
    	PRIMARY KEY (id_vuelo, id_avion),
-   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo),
-   	FOREIGN KEY (id_avion) REFERENCES Avion (id_avion)
+   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo) ON DELETE CASCADE,
+   	FOREIGN KEY (id_avion) REFERENCES Avion (id_avion) ON DELETE CASCADE
 );
  
 -- ReservacionHotel table - ReservacionHotel (id_cliente, id_hotel)
@@ -99,8 +99,8 @@ CREATE TABLE ReservacionHotel(
    	id_cliente VARCHAR(10),
    	id_hotel VARCHAR(10),
    	PRIMARY KEY (id_cliente, id_hotel),
-   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente),
-   	FOREIGN KEY (id_hotel) REFERENCES Hotel (id_Hotel)
+   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente) ON DELETE CASCADE,
+   	FOREIGN KEY (id_hotel) REFERENCES Hotel (id_hotel) ON DELETE CASCADE
 );
  
 -- VueloDep table - VueloDep (id_cliente, nombreD, id_vuelo)
@@ -110,7 +110,7 @@ CREATE TABLE VueloDep(
    	nombreD VARCHAR(20),
    	id_vuelo VARCHAR(10),
    	PRIMARY KEY (id_cliente, nombreD, id_vuelo),
-   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente),
-   	FOREIGN KEY (nombreD) REFERENCES Dependientes (nombreD),
-   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo)
+   	FOREIGN KEY (id_cliente) REFERENCES Cliente (id_cliente) ON DELETE CASCADE,
+   	FOREIGN KEY (nombreD) REFERENCES Dependientes (nombreD) ON DELETE CASCADE,
+   	FOREIGN KEY (id_vuelo) REFERENCES Vuelo (id_vuelo) ON DELETE CASCADE
 );

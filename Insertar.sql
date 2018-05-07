@@ -59,8 +59,8 @@ INSERT INTO AvionUsado VALUES('V0082','CR7');
 INSERT INTO AvionUsado VALUES('V0083','78P');
 
 -- ReservacionHotel (id_cliente, id_hotel)
-INSERT INTO ReservacionHotel VALUES('GG10021','H381');
-INSERT INTO ReservacionHotel VALUES('HP8764','H855');
-INSERT INTO ReservacionHotel VALUES('SW1138','H410');
-INSERT INTO ReservacionHotel VALUES('VD173', 'H520');
-INSERT INTO ReservacionHotel VALUES('BBT73','H769');
+INSERT INTO ReservacionHotel VALUES('GG10021','3');
+INSERT INTO ReservacionHotel VALUES('HP8764','2');
+INSERT INTO ReservacionHotel VALUES('SW1138','3');
+INSERT INTO ReservacionHotel VALUES('VD173', '4');
+INSERT INTO ReservacionHotel VALUES('BBT73','5');

@@ -15,6 +15,8 @@ public:
     explicit VerVuelos(QWidget *parent = 0);
     ~VerVuelos();
     QString getIdVuelo();
+    QString getDestino();
+    void setDestino(QString d);
 
 private slots:
     void on_salir_V_clicked();
@@ -28,6 +30,8 @@ private slots:
     void on_lineEdit_returnPressed();
 
     void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_tableWidget_clicked(const QModelIndex &index);
 
 private:
     Ui::VerVuelos *ui;
