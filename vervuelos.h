@@ -14,11 +14,20 @@ class VerVuelos : public QDialog
 public:
     explicit VerVuelos(QWidget *parent = 0);
     ~VerVuelos();
+    QString getIdVuelo();
 
 private slots:
     void on_salir_V_clicked();
 
     void on_reservarVuelo_clicked();
+
+    void on_lineEdit_textEdited(const QString &arg1);
+
+    void on_lineEdit_editingFinished();
+
+    void on_lineEdit_returnPressed();
+
+    void on_lineEdit_textChanged(const QString &arg1);
 
 private:
     Ui::VerVuelos *ui;

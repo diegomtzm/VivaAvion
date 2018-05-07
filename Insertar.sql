@@ -26,7 +26,7 @@ INSERT INTO Vuelo VALUES ('V0079', '26-05-2018', '08:55', '09:00', 'Monterrey', 
 INSERT INTO Vuelo VALUES ('V0080', '24-04-2018', '15:50', '16:00', 'CD. de Mexico', 'Pto. Escondido','3 horas, 10 min','60','Fernando Cantu', 'Terminal A', 5474);
 INSERT INTO Vuelo VALUES ('V0081', '22-07-2018', '11:20', '11:30', 'Cancun', 'Queretaro', '2 horas, 15 min', '125', 'Mario Gonzalez', 'Terminal D', 1998);
 INSERT INTO Vuelo VALUES ('V0082', '17-06-2018', '15:55', '16:05', 'Guadalajara', 'Los Angeles','1 hora, 20 min', '20','Gilberto Ortuño', 'Terminal B', 2278);
-INSERT INTO Vuelo VALUES ('V0083', '21-07-2018', '19:20', '19:25', 'CD. Mexico', 'Los Cabos', '1 hora','150', 'Juan Mendez', 'Terminal C', 2139);
+INSERT INTO Vuelo VALUES ('V0083', '21-07-2018', '19:20', '19:25', 'CD. de Mexico', 'Los Cabos', '1 hora','150', 'Juan Mendez', 'Terminal C', 2139);
 
 -- Hotel (id_hotel, Direccion, cant_habitaciones)
 INSERT INTO Hotel (Nombre, Direccion, cant_Habitaciones, precioPorNoche) VALUES ('Plaza Hotel', '1 S Main St, Las Vegas, NV 89101', 2, 5); --plaza hotel y casino

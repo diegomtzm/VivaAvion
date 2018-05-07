@@ -37,7 +37,8 @@ SOURCES += \
     agregarvuelo.cpp \
     agregarhotel.cpp \
     reservasvuelos.cpp \
-    reservashoteles.cpp
+    reservashoteles.cpp \
+    infocliente.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -49,7 +50,8 @@ HEADERS += \
     agregarvuelo.h \
     agregarhotel.h \
     reservasvuelos.h \
-    reservashoteles.h
+    reservashoteles.h \
+    infocliente.h
 
 FORMS += \
         mainwindow.ui \
@@ -61,7 +63,8 @@ FORMS += \
     agregarvuelo.ui \
     agregarhotel.ui \
     reservasvuelos.ui \
-    reservashoteles.ui
+    reservashoteles.ui \
+    infocliente.ui
 
 DISTFILES += \
     ../Cuarto Semestre/Bases de datos/Consultar.sql \
